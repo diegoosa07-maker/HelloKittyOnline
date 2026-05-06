@@ -1,0 +1,11 @@
+## Proyecto Formula 1:  [Grupo Pendiente]
+Análisis de datos sobre las diferentes escuderias de la Formula 1. Entre estos datos se encuentra el historial de pilotos, historial de victorias, cambios en el modelo de coche, número de victorias, etc...
+
+## Estructura: 
+- src: Código.
+- Data: Datos en crudo (raw) y en limpio (clean).
+
+## Instrucciones:
+- Virtual env: python -m venv .venv
+- Activarlo: .venv\Scripts\activate
+- Librerías: pip install -r requirements.txt

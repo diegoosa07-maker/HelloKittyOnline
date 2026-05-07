@@ -1,4 +1,4 @@
-## Integrantes de Grupo Pendiente: 
+## Integrantes de Grupo: 
 - Felipe Vatrella.
 - Adrian Reig
 - Rodrigo Ahuatzin Oropeza

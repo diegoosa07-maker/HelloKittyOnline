@@ -7,10 +7,6 @@ if _SRC not in sys.path:
 
 import streamlit as st
 
-from controllers.incidencia_controller import IncidenciaController
-from views.registro_view     import render_registro
-from views.tabla_view        import render_tabla
-from views.estadisticas_view import render_estadisticas
 
 
 st.set_page_config(

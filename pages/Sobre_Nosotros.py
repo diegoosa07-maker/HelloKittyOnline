@@ -24,7 +24,7 @@ PROFESORA = {
     "rol":    "Profesora del curso",
 }
 
-st.title("Sobre Nosotros")
+
 st.caption("Conoce al equipo detrás de HelloKittyOnline")
 st.divider()
 

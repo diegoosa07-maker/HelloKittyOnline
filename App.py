@@ -17,6 +17,8 @@ with col_boton:
     if st.button("👥 Sobre Nosotros"):
         # Esta forma es la más robusta:
         st.switch_page(os.path.join("pages", "Sobre_Nosotros.py"))
+    if st.button("📖 Ver Definiciones"):
+        st.switch_page("pages/Definiciones_Amenazas.py")
 
 # 2. CONFIGURACIÓN DE DATOS Y RUTAS
 # Ajustamos la ruta para que siempre encuentre los datos sin importar dónde se ejecute

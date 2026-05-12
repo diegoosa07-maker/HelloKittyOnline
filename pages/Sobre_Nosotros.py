@@ -1,5 +1,16 @@
 import streamlit as st
 
+# 1. ESTO DEBE IR PRIMERO SIEMPRE
+st.set_page_config(page_title="Sobre Nosotros", layout="wide")
+
+# 2. LUEGO EL BOTÓN (Usando la ruta al archivo principal)
+if st.button("⬅️ Volver al Panel"):
+    st.switch_page("App.py")
+
+# 3. EL RESTO DE TU CÓDIGO (Equipo, Profesora, etc.)
+st.title("Sobre Nosotros")
+
+# 3. DATOS
 EQUIPO = [
     {"nombre": "Rodrigo", "rol": "Programador"},
     {"nombre": "Carlos",  "rol": "Programador"},
@@ -12,8 +23,6 @@ PROFESORA = {
     "nombre": "Vanessa Lara Perez",
     "rol":    "Profesora del curso",
 }
-
-st.set_page_config(page_title="Sobre Nosotros - HelloKittyOnline", layout="wide")
 
 st.title("Sobre Nosotros")
 st.caption("Conoce al equipo detrás de HelloKittyOnline")

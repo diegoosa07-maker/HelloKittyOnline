@@ -1,39 +1,47 @@
-import streamlit as st
-import pandas as pd
-import plotly.express as px
-
 import os
-from datetime import datetime
+import sys
 
-# 1. CONFIGURACIÓN DE LA PÁGINA
-st.set_page_config(page_title="HelloKittyOnline — Gestión", layout="wide")
+_SRC = os.path.dirname(os.path.abspath(__file__))
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
 
-# Archivo donde se guardará la información
-ARCHIVO_DATOS = "amenazas.csv"
+import streamlit as st
 
-# Opciones fijas para los selectores
-NIVELES_RIESGO = ["Crítico", "Alto", "Medio", "Bajo"]
-TIPOS_AMENAZA = ["Phishing", "Malware", "Ataque de fuerza bruta", "Fuga de datos", "Acceso no autorizado", "Otros"]
+from controllers.incidencia_controller import IncidenciaController
+from views.registro_view     import render_registro
+from views.tabla_view        import render_tabla
+from views.estadisticas_view import render_estadisticas
 
-# Diccionario de acciones recomendadas
-ACCIONES = {
-    "Phishing": "No hacer clic en enlaces sospechosos y reportar el correo.",
-    "Malware": "Aislar el sistema y ejecutar un antivirus actualizado.",
-    "Ataque de fuerza bruta": "Bloquear la cuenta y habilitar autenticación de dos factores.",
-    "Fuga de datos": "Identificar datos expuestos y notificar a los afectados.",
-    "Acceso no autorizado": "Revocar credenciales y auditar permisos de usuario.",
-    "Otros": "Documentar el incidente y escalar al equipo de seguridad."
-}
 
-# 2. FUNCIONES DE APOYO (Lógica de datos)
-def cargar_datos():
-    """Carga el CSV si existe, si no, crea un DataFrame vacío."""
-    if os.path.exists(ARCHIVO_DATOS):
-        return pd.read_csv(ARCHIVO_DATOS)
-    return pd.DataFrame(columns=["Amenaza", "Clasificación", "Nivel de Riesgo", "Acción", "Fecha"])
+st.set_page_config(
+    page_title="HelloKittyOnline — Gestión de Amenazas",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-def guardar_datos(df):
-    """Guarda el DataFrame actual en el archivo CSV."""
-    df.to_csv(ARCHIVO_DATOS, index=False)
+st.title("HelloKittyOnline")
+st.caption("Sistema de gestión y registro de amenazas cibernéticas")
+st.divider()
 
-# Inicializamos los datos en
+
+if "controller" not in st.session_state:
+    st.session_state.controller = IncidenciaController()
+
+ctrl = st.session_state.controller
+
+with st.sidebar:
+    st.markdown("## Navegación")
+    seccion = st.radio(
+        "Ir a:",
+        options=["Registrar amenaza", "Ver incidencias", "Estadísticas"],
+        label_visibility="collapsed",
+    )
+    st.divider()
+    st.caption(f"Total registradas: {ctrl.total_incidencias()} incidencias")
+
+if seccion == "Registrar amenaza":
+    render_registro(ctrl)
+elif seccion == "Ver incidencias":
+    render_tabla(ctrl)
+elif seccion == "Estadísticas":
+    render_estadisticas(ctrl)

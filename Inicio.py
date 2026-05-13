@@ -21,12 +21,15 @@ DATA_PATH = os.path.normpath(os.path.join(BASE_DIR, "data", "clean", "amenazas.c
 COLUMNAS = ["Amenaza", "Clasificación", "Nivel de Riesgo", "Acciones Recomendadas", "Fecha"]
 
 INFO_AMENAZAS = {
-    "Phishing": {"riesgo": "Medio", "accion": "No hacer clic en enlaces sospechosos..."},
-    "Malware": {"riesgo": "Alto", "accion": "Aislar el sistema, ejecutar antivirus..."},
-    "Ataque de fuerza bruta": {"riesgo": "Crítico", "accion": "Bloquear la cuenta, habilitar 2FA..."},
-    "Fuga de datos": {"riesgo": "Crítico", "accion": "Identificar datos expuestos..."},
-    "Acceso no autorizado": {"riesgo": "Alto", "accion": "Revocar credenciales..."},
-    "Otros": {"riesgo": "Bajo", "accion": "Documentar el incidente..."},
+    "Phishing": {"riesgo": "Medio", "accion": "No hacer clic en enlaces sospechosos y verificar remitente."},
+    "Malware": {"riesgo": "Alto", "accion": "Aislar el sistema, ejecutar antivirus y analizar archivos."},
+    "Ataque de fuerza bruta": {"riesgo": "Crítico", "accion": "Bloquear la cuenta, habilitar 2FA y cambiar contraseñas."},
+    "Fuga de datos": {"riesgo": "Crítico", "accion": "Identificar datos expuestos y notificar a los afectados."},
+    "Acceso no autorizado": {"riesgo": "Alto", "accion": "Revocar credenciales y revisar logs de auditoría."},
+    "DDoS": {"riesgo": "Alto", "accion": "Activar protección de red (WAF) y filtrar tráfico sospechoso."},
+    "Ransomware": {"riesgo": "Crítico", "accion": "Desconectar equipos de la red y usar copias de seguridad externas."},
+    "Spyware": {"riesgo": "Medio", "accion": "Escanear con herramientas anti-spyware y limpiar el registro."},
+    "Otros": {"riesgo": "Bajo", "accion": "Documentar el incidente y analizar el vector de entrada."},
 }
 
 # LÓGICA DE CARGA/GUARDADO

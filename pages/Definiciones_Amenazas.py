@@ -2,11 +2,11 @@
 import streamlit as st
 import io
 
-# 1. SIEMPRE PRIMERO
+# 1. DEFINICION DE LA PAGINA
 st.set_page_config(page_title="Gestor de Amenazas Informáticas", layout="centered")
 
-# 2. BOTÓN DE RETORNO (Ahora que está en la carpeta pages)
-if st.button("⬅️ Volver al Panel"):
+# 2. BOTÓN DE RETORNO 
+if st.button("Volver al Panel"):
     st.switch_page("App.py")
 
 st.title("Gestor de Amenazas Informáticas")
@@ -31,7 +31,7 @@ class GestorAmenazas:
     def obtener_por_nombre(self, nombre):
         return next((a for a in self.amenazas if a.nombre == nombre), None)
 
-# Inicializar amenazas si no existen en session_state
+# Inicializar amenazas si no existen
 if 'gestor_amenazas' not in st.session_state:
     amenazas_iniciales = [
         Amenaza(

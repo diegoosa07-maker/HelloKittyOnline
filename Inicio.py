@@ -4,18 +4,18 @@ import os
 from datetime import datetime
 import plotly.express as px
 
-# 1. CONFIGURACIÓN DE LA PÁGINA
+# CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(
     page_title="HelloKittyOnline - Gestión", 
     layout="wide", 
-    initial_sidebar_state="auto"  # Ahora se comporta de forma normal
+    initial_sidebar_state="auto"  
 )
 
 # Encabezado simple
 st.title("HelloKittyOnline")
 st.caption("Registro automatizado de amenazas cibernéticas")
 
-# 2. CONFIGURACIÓN DE DATOS Y RUTAS
+# CONFIGURACIÓN DE DATOS Y RUTAS
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.normpath(os.path.join(BASE_DIR, "data", "clean", "amenazas.csv"))
 COLUMNAS = ["Amenaza", "Clasificación", "Nivel de Riesgo", "Acciones Recomendadas", "Fecha"]
@@ -29,7 +29,7 @@ INFO_AMENAZAS = {
     "Otros": {"riesgo": "Bajo", "accion": "Documentar el incidente..."},
 }
 
-# 3. LÓGICA DE CARGA/GUARDADO
+# LÓGICA DE CARGA/GUARDADO
 def cargar():
     if os.path.exists(DATA_PATH):
         try:
@@ -46,7 +46,7 @@ def guardar(df):
 if "df" not in st.session_state:
     st.session_state.df = cargar()
 
-# 4. INTERFAZ: REGISTRO DE AMENAZA
+# REGISTRO DE AMENAZA
 st.subheader("Registrar nueva amenaza")
 
 opciones = ["Por favor seleccione:"] + list(INFO_AMENAZAS.keys())
@@ -88,7 +88,7 @@ if boton_guardar:
 
 st.divider()
 
-# --- SECCIÓN: DASHBOARD Y GRÁFICAS ---
+# DASHBOARD Y GRÁFICAS
 st.subheader(" Dashboard de Análisis")
 
 if not st.session_state.df.empty:
@@ -125,7 +125,7 @@ else:
 
 st.divider()
 
-# 5. TABLA DE RESULTADOS
+# TABLA DE RESULTADOS
 st.subheader(" Historial de Registros")
 if st.session_state.df.empty:
     st.info("No hay registros todavía.")

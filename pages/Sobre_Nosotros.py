@@ -1,13 +1,13 @@
 import streamlit as st
 
-# 1. ESTO DEBE IR PRIMERO SIEMPRE
+# 1. CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Sobre Nosotros", layout="wide")
 
-# 2. LUEGO EL BOTÓN (Usando la ruta al archivo principal)
-if st.button("⬅️ Volver al Panel"):
+# 2. BOTÓN DE REGRESO
+if st.button("Volver al Panel"):
     st.switch_page("App.py")
 
-# 3. EL RESTO DE TU CÓDIGO (Equipo, Profesora, etc.)
+# 3. SOBRE NOSOTROS
 st.title("Sobre Nosotros")
 
 # 3. DATOS

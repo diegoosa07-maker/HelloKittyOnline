@@ -34,31 +34,16 @@ class GestorAmenazas:
 # Inicializar amenazas si no existen
 if 'gestor_amenazas' not in st.session_state:
     amenazas_iniciales = [
-        Amenaza(
-            "Malware",
-            "Software malicioso diseñado para dañar, explotar o acceder sin autorización a sistemas informáticos.",
-            ["Malwarebytes", "Windows Defender"]
-        ),
-        Amenaza(
-            "Phishing",
-            "Técnica de engaño para obtener información confidencial haciéndose pasar por una entidad confiable.",
-            ["Norton", "Kaspersky"]
-        ),
-        Amenaza(
-            "DDoS",
-            "Ataque de denegación de servicio distribuido que satura un sistema con tráfico para hacerlo inaccesible.",
-            ["Cloudflare", "Incapsula"]
-        ),
-        Amenaza(
-            "Ransomware",
-            "Malware que cifra archivos y exige un rescate para restaurar el acceso.",
-            ["Bitdefender", "Emsisoft Decryptor"]
-        ),
-        Amenaza(
-            "Spyware",
-            "Software que recopila información sobre un usuario sin su conocimiento.",
-            ["SUPERAntiSpyware", "Spybot"]
-        )
+        Amenaza("Malware", "Software malicioso diseñado para dañar, explotar o acceder sin autorización.", ["Malwarebytes", "Windows Defender"]),
+        Amenaza("Phishing", "Técnica de engaño para obtener información confidencial haciéndose pasar por una entidad confiable.", ["Norton", "Kaspersky"]),
+        Amenaza("DDoS", "Ataque que satura un sistema con tráfico para hacerlo inaccesible.", ["Cloudflare", "Incapsula"]),
+        Amenaza("Ransomware", "Malware que cifra archivos y exige un rescate para restaurar el acceso.", ["Bitdefender", "Emsisoft Decryptor"]),
+        Amenaza("Spyware", "Software que recopila información sobre un usuario sin su conocimiento.", ["SUPERAntiSpyware", "Spybot"]),
+        # NUEVAS AÑADIDAS:
+        Amenaza("Ataque de fuerza bruta", "Intento de adivinar contraseñas mediante prueba y error sistemático.", ["Authy", "Google Authenticator"]),
+        Amenaza("Fuga de datos", "Liberación no autorizada de información confidencial hacia un entorno no confiable.", ["Varonis", "Digital Guardian"]),
+        Amenaza("Acceso no autorizado", "Entrada a sistemas o redes sin el permiso debido.", ["Okta", "Cisco Duo"]),
+        Amenaza("Otros", "Otras amenazas no categorizadas en las secciones anteriores.", ["Guía de Incidencias"])
     ]
     st.session_state['gestor_amenazas'] = GestorAmenazas(amenazas_iniciales)
 
